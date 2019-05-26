@@ -1,0 +1,35 @@
+<%= form_for @task, url:client_tasks_path do |form| %>
+
+
+  <div class="field">
+    <%= form.label :client_id %>
+    <%= form.select :client_id, options_for_select(@allclients.collect{|p| [ p.last_name, p.id ] }) %>
+  </div>
+  <div class="field">
+    <%= form.label :task_date %>
+    <%= form.date_select :task_date %>
+  </div>
+  <div class="field">
+    <%= form.label :time_billed %>
+    <%= form.number_field :time_billed, :step => "0.1" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rate %>
+    <%= form.number_field :rate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_area :notes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
